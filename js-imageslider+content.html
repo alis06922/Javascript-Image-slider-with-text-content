@@ -1,0 +1,112 @@
+<html>
+<head> 
+          <title>A Simple JS  Image Slider with content slider</title>
+     <style>
+        .main
+		{
+		position:relative;
+		width:80%;
+		margin:0 auto;
+		margin-top:50px;
+		}
+		p  {
+		     font-size:15px;
+			 margin-left:5px;
+			 font-weight:bold;
+			 color:tomato;
+			 padding:10px;
+		}
+        .mySlides,.mySlidescontent
+		{
+		width:100%;
+		position:relative;
+		float:left;
+		}
+		.mySlidescontent
+		{
+				border:1px dotted black;
+       }
+	   img  {
+	     max-width:65%;
+
+	   }
+	   .fade {
+  -webkit-animation-name: fade;
+  -webkit-animation-duration: 1.5s;
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+@-webkit-keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
+}
+	   .Prev ,.Next {
+  cursor: pointer;
+  position: absolute;
+  width: auto;
+  padding: 16px;
+  margin-top: 9%;
+  color: black;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+ border-radius: 0 3px 3px 0;
+
+}
+.Prev { left:0%; }
+.Next { right:0%;border-radius: 3px 0px 0px 3px;}
+.Next:hover , .Prev:hover{ background-color:gray;}
+     </style>
+</head>
+     <body>
+         <div class="main">
+			   <div class="mySlidescontent fade">
+			   <div class="imggg">
+			              <img id="img1" class="mySlides" src="img/slide1.jpg">
+				</div>
+				<div class="texttt">
+			    <p>Keep close to Nature's heart... and break clear away, once in awhile, and climb a mountain or spend a week in the woods. Wash your spirit clean.</p>
+			    </div>
+		       </div>
+			   
+			   <div class="mySlidescontent fade">
+			     <img id="img2" class="mySlides" src="img/slide2.jpg">
+	              <p>The body needs its rest, and sleep is extremely important in any health regimen. There should be three main things: eating, exercise and sleep. All three together in the right balance make for a truly healthy lifestyle.</p>
+				 </div>
+			 
+			     <div class="mySlidescontent fade">
+			      <img id="img3" class="mySlides" src="img/slide3.jpg">
+			        <p>I love the region around Lake Geneva. The landscape is beautiful, very peaceful, and such a nice place to relax and spend time outdoors. It's always a pleasure to come back home.</p>
+				   </div>
+			     
+				 <div class="mySlidescontent fade">
+			      <img id="img4" class="mySlides" src="img/slide4.png">	      
+				   <p>I remember about Space Mountain: It took us ten years before we found the technology that would allow such a ride. And during these ten years, I had a model that I kept, waiting for the technology we needed.</p>
+				  </div>
+				       <a class="Prev" onclick="plus(-1)" >Prev</a>
+	                   <a class="Next" onclick="plus(+1)" >Next</a>
+		</div>
+         <script>
+       var myIndex=1;
+	   showImage(myIndex);
+	 function plus(n) {
+	      showImage(myIndex+=n);
+		}  
+function showImage(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlidescontent");
+  if (n > x.length) {myIndex = 1}    
+  if (n < 1) {myIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+     x[i].style.display = "none";  
+  }
+  x[myIndex-1].style.display = "block";  
+} 
+         </script>
+     </body>
+</html>
